@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+    server:
+        build:
+            context: ./docker
+        hostname: "pydev_env" 
+        ports:
+            - "6471:22"
+        privileged: true
