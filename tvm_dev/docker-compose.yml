@@ -1,10 +1,13 @@
-version: '3'
+version: '3.7'
 
 services:
     server:
         build:
             context: ./docker
         hostname: "tvm_dev" 
+        device_requests:
+            - capabilities:
+                - "gpu"
         ports:
-            - "6472:22"
+            - "6471:22"
         privileged: true
