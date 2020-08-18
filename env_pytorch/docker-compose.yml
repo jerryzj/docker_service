@@ -1,10 +1,13 @@
-version: '3'
+version: '3.7'
 
 services:
     server:
         build:
             context: ./docker
         hostname: "pydev_env" 
+        device_requests:
+            - capabilities:
+                - "gpu"
         ports:
             - "6471:22"
         privileged: true
