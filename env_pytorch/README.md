@@ -16,7 +16,6 @@ pip3 install git+https://github.com/yoanisgil/compose.git@device-requests
 
 Make sure you have **docker-compose** installed on the host.
 
-
 ```shell
 COMPOSE_API_VERSION=auto docker-compose up -d
 ```
