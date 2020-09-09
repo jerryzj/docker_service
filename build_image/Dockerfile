@@ -1,8 +1,9 @@
 FROM jerryzj/dev_basic_gpu:latest
-# You may use other images instead
+# You may use other base images instead
+# The following steps are enabling ssh service and setup
+# default root login password
 
 RUN apt-get update
-
 RUN apt-get upgrade -y 
 RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd

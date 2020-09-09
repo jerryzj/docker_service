@@ -2,12 +2,13 @@ version: '3.7'
 
 services:
     server:
-        build:
-            context: ./docker
+        image: "dev_basic_gpu_server"
         hostname: "tvm_dev" 
         device_requests:
             - capabilities:
                 - "gpu"
         ports:
             - "6471:22"
+        volumes:
+            - $HOME:/root
         privileged: true

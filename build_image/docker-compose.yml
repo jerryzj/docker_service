@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+    template:
+        build:
+            context: .
+        image: dev_basic_gpu_server
