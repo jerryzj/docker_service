@@ -2,16 +2,20 @@
 
 Docker container as ssh server with NVIDIA GPU enabled
 
+## Package required
+
+* NVIDIA driver (It will be installed automatically in Ubuntu 20.04 LTS)
+* Docker v19.03.13
+* nvidia-docker2 v2.5.0-1
+* docker-compose v1.27.4
+
 ## Notes
 
-Since nvidia-docker is not fully integrated with docker-compose now, you have to install docker-compose & docker-py manually
+The latest ``nvidia-docker`` is integrated with ``docker-compose`` now, make sure you install the latest version of ``nvidia-docker`` and ``docker-compose``.
 
-```shell
-pip3 install git+https://github.com/docker/docker-py.git
-pip3 install git+https://github.com/yoanisgil/compose.git@device-requests
-```
+To install the latest version of docker, docker-compose and nvidia-docker, make sure installing them from Docker official APT repo, Pypl, and NVIDIA APT repo respectively.
 
-## Build ssh enabled image
+## 1. Build ssh enabled image
 
 First, you need to build a ssh enabled image to launch CAAS (container as a service).
 
@@ -25,21 +29,21 @@ cd build_image
 docker-compose build
 ```
 
-## Use docker-compose to start a server
+## 2. Use docker-compose to start a server
 
 After the image is built, you can use the following command to start a container
 
-In ``tvm_dev``, we mount your home directory to the container, you can specify a certain path instead.
-
-Make sure you have **docker-compose** installed on the host.
+In ``tvm_dev``, we will mount your home directory to the container by default, you can specify a certain path instead.
 
 ```shell
 cd tvm_dev
-COMPOSE_API_VERSION=auto docker-compose up -d
+docker-compose up -d
 ```
 
-## Connect to the container
+## 3. Connect to the container
+
+Note that using the specified port in ``docker-compose.yml``
 
 ```shell
-ssh -p$SPECIFIED_PORT $Hostname
+ssh -p$SPECIFIED_PORT root@$Hostname
 ```
