@@ -3,10 +3,9 @@ version: '3.8'
 services:
     server:
         image: "dev_basic_gpu_server"
-        hostname: "tvm_dev" 
+        hostname: "neurosim_env" 
         runtime: nvidia
         ports:
-            - "6472:22"
+            - "6471:22"
         volumes:
-            - $HOME:/root
-        privileged: true
+            - /home/jerry/docker_shared:/root

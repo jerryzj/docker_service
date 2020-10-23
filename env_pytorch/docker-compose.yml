@@ -1,13 +1,11 @@
-version: '3.7'
+version: '3.8'
 
 services:
     server:
         build:
             context: ./docker
         hostname: "pydev_env" 
-        device_requests:
-            - capabilities:
-                - "gpu"
+        runtime: nvidia
         ports:
             - "6471:22"
         privileged: true
