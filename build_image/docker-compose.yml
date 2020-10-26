@@ -1,7 +1,11 @@
-version: '3'
+version: '3.8'
 
 services:
-    template:
+    cpu:
         build:
-            context: .
+            context: ./CPU
+        image: dev_basic_server
+    gpu:
+        build:
+            context: ./GPU
         image: dev_basic_gpu_server
