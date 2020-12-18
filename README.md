@@ -24,9 +24,18 @@ The default base image is ``jerry_zj/dev_basic_gpu``, you can edit the Dockerfil
 
 The name of the ssh enabled image is set to ``dev_basic_gpu_server`` by default, you can name your own image by edit ``docker-compose.yml`` under ``build_image`` directory.
 
+The default command will build CPU and GPU images simultaneously
+
 ```shell
 cd build_image
 docker-compose build
+```
+
+If you want to build image for CPU only, use
+
+```shell
+cd build_image
+docker-compose build cpu
 ```
 
 ## 2. Use docker-compose to start a server
