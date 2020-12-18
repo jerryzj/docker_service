@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+    server:
+        image: "dev_basic_server"
+        hostname: "synology_dev" 
+        ports:
+            - "6474:22"
+        privileged: true
